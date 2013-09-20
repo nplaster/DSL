@@ -1,6 +1,17 @@
-physical 'Hammer'
-book 'The Great Gatsby'
-membership 'Doug Smith'
-upgrade 'Sally Smith'
-video 'Reel Rock 7'
+product 'physical'
+product 'book'
+product 'membership'
+product 'upgrade'
+product 'video'
+
+packing_slip 'shipping'
+packing_slip 'royalty'
+packing_slip 'first-aid kit'
+
+activate
+upgrade
+email 'upgrade'
+email 'activation;
+
+pay 'commision'
 
