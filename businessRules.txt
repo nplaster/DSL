@@ -1,0 +1,6 @@
+physical 'Hammer'
+book 'The Great Gatsby'
+membership 'Doug Smith'
+upgrade 'Sally Smith'
+video 'Reel Rock 7'
+
