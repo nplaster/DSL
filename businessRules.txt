@@ -1,17 +1,27 @@
 product 'physical'
-product 'book'
-product 'membership'
-product 'upgrade'
-product 'video'
+packing_slip 'shipping'
+pay 'commision'
 
+product 'book'
 packing_slip 'shipping'
 packing_slip 'royalty'
-packing_slip 'first-aid kit'
+pay 'commision'
 
+product 'membership'
 activate
+email 'activation'
+
+product 'upgrade'
 upgrade
 email 'upgrade'
-email 'activation;
 
-pay 'commision'
+product 'video'
+packing_slip 'shipping'
+packing_slip 'first-aid kit'
+
+
+
+
+
+
 
