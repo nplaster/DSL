@@ -1,11 +1,11 @@
 product 'physical'
 packing_slip 'shipping'
-pay 'commision'
+pay 'commission'
 
 product 'book'
 packing_slip 'shipping'
 packing_slip 'royalty'
-pay 'commision'
+pay 'commission'
 
 product 'membership'
 activate
@@ -17,7 +17,10 @@ email 'upgrade'
 
 product 'video'
 packing_slip 'shipping'
-packing_slip 'first-aid kit'
+
+product 'learning to ski'
+packing_slip 'shipping'
+add_first_aid
 
 
 

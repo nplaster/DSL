@@ -6,27 +6,38 @@ require './paymentRules.rb'
 require './product.rb'
 
 def product(text)
-  Rules.instance.add_question Product.new(text)
+  puts "Processing payment of type: #{text}"
+  #PaymentRules.instance.add_product(text)
 end
 
 def packing_slip(text)
-  Rules.instance.add_question Process.new(text)
+  puts "----Packing slip for #{text}"
+  #PaymentRules.instance.last_product.add_rule("----Packing slip for #{text}")
 end
 
 def pay(text)
-  Rules.instance.add_question Process.new(text)
+  puts "----Paying #{text}"
+  #PaymentRules.instance.last_product.add_rule("----Paying #{text}")
 end
 
 def email(text)
-  Rules.instance.add_question Process.new(text)
+  puts "----Sending email for #{text}"
+  #PaymentRules.instance.last_product.add_rule("----Sending email for #{text}")
 end
 
 def activate()
-  Rules.instance.add_question Process.new()
+  puts "----Activating membership"
+  #PaymentRules.instance.last_product.add_rule("----Activating membership")
 end
 
 def upgrade()
-  Rules.instance.add_question Process.new()
+  puts "----Upgrading membership"
+  #PaymentRules.instance.last_product.add_rule("----Upgrading membership")
+end
+
+def add_first_aid()
+  puts "----Adding free First Aid video to packing slip"
+  #PaymentRules.instance.last_product.add_rule("----Adding free First Aid video to packing slip")
 end
 
 load 'businessRules.txt'

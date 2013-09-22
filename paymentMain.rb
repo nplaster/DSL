@@ -10,7 +10,7 @@
       
       begin
       puts "Enter product type or 'quit' to end: "
-      response = gets.chomps
+      response = gets.chomps.downcase
       #check to see if response is legit product type
       
       #if not loop through again
