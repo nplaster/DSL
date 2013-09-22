@@ -3,8 +3,21 @@
 #prompts the users and "processes" payments until the user enters a sentinel value (I used 'quit').
 #handle undefined product exceptions raised by the PaymentRules class
 
-  def run_quiz
-    count=0
-    @questions.each { |q| count += 1 if q.ask }
-    puts "You got #{count} answers correct out of #{@questions.size}."
+  def run_product
+
+    begin
+      load 'businessRules.txt'
+      
+      begin
+      puts "Enter product type or 'quit' to end: "
+      response = gets.chomps
+      #check to see if response is legit product type
+      
+      #if not loop through again
+      end while(response != 'quit') # || response != product)
+      
+      #calls processes to execute with specified product type
+      
+    end while (response != 'quit')
+
   end

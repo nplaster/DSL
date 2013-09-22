@@ -5,37 +5,28 @@
 require './paymentRules.rb'
 require './product.rb'
 
-#If the payment is for a physical product, generate a packing slip for shipping,
-#and generate a commission payment to the agent.
 def product(text)
-  Rules.instance.add_question Question.new(text)
+  Rules.instance.add_question Product.new(text)
 end
 
-#If the payment is for a book, create a duplicate packing slip for the royalty department, and
-#and generate a commission payment to the agent.
 def packing_slip(text)
-  #code
+  Rules.instance.add_question Process.new(text)
 end
-#If the payment is for a membership, activate that membership,
-#and e-mail the owner and inform them of the activation/upgrade.
+
 def pay(text)
-  #code
+  Rules.instance.add_question Process.new(text)
 end
 
-#If the payment is an upgrade to a membership, apply the upgrade,
-#and e-mail the owner and inform them of the activation/upgrade.
 def email(text)
-  #code
+  Rules.instance.add_question Process.new(text)
 end
 
-#If the payment is for the video "Learning to Ski,"
-#add a free "First Aid" video to the packing slip (the result of a court decision in 1997).
-def activate(text)
-  #code
+def activate()
+  Rules.instance.add_question Process.new()
 end
 
-def upgrade(text)
-  #code
+def upgrade()
+  Rules.instance.add_question Process.new()
 end
 
 load 'businessRules.txt'

@@ -3,18 +3,22 @@
 # must be able to "process" a payment - by calling all the processes stored for
 # that type of product. See 'book' in figure 2.
 
-class Question
+class Product
   attr_reader :answers
 
   def initialize( text )
     @text = text
-    @answers = []
+    @process[]
   end
 
-  def add_answer(answer)
-    @answers << answer
+#handle adding a process with parameters and without
+  def add_process(process)
+    #handle with parameter
+    @process << process
+    #handle without parameter
   end
-
+  
+#asks the user to input a product
   def ask
     puts ""
     puts "Question: #{@text}"
@@ -27,7 +31,7 @@ class Question
   end
 end
 
-class Answer
+class Processes
   attr_reader :text, :correct
   def initialize( text, correct )
     @text = text
