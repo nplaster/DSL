@@ -24,6 +24,7 @@ class Product
     for rule in @rules
       rule.handleProcess
     end
+    
   end
 end
 

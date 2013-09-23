@@ -35,7 +35,15 @@ class PaymentRules
     else
       puts "#{last_product} is not a valid product"
     end
-    
+  end
+  
+  #Processes a payment for a given product type
+  def processPayment(text)
+    if @rules.has_key?(text)
+      @rules[text].handlePayment     
+    else
+      puts "Invalid product: #{text}"
+    end
   end
 
 
