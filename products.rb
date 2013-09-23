@@ -16,7 +16,6 @@ def packing_slip(text)
 end
 
 def pay(text)
-  puts "----Paying #{text}"
   #PaymentRules.instance.last_product.add_rule("----Paying #{text}")
 end
 
@@ -40,4 +39,8 @@ def add_first_aid()
   #PaymentRules.instance.last_product.add_rule("----Adding free First Aid video to packing slip")
 end
 
-load 'businessRules.txt'
+def load_business_rules(filename)
+  load filename
+end
+
+load_business_rules('businessRules.txt')

@@ -4,37 +4,33 @@
 # that type of product. See 'book' in figure 2.
 
 class Product
-  attr_reader :answers
+  attr_reader :rules
 
-  def initialize( text )
+  def initialize(text)
     @text = text
-    @process[]
+    @rules = Array.new
   end
 
-#handle adding a process with parameters and without
-  def add_process(process)
-    #handle with parameter
-    @process << process
-    #handle without parameter
+#handle adding a rule with parameters and without
+  def add_rule(text)
+    @rules << Process.new(text)
   end
   
-#asks the user to input a product
-  def ask
-    puts ""
-    puts "Question: #{@text}"
-    @answers.size.times do |i|
-      puts "#{i+1} - #{@answers[i].text}"
+#Handles payment for the product
+  def handlePayment()
+    for rule in @rules
+      rule.handleProcess
     end
-    print "Enter answer: "
-    answer = gets.to_i - 1
-    return @answers[answer].correct
   end
 end
 
 class Processes
-  attr_reader :text, :correct
-  def initialize( text, correct )
+  attr_reader :text
+  def initialize(text)
     @text = text
-    @correct = correct
+  end
+  
+  def handleProcess()
+    puts @text
   end
 end
