@@ -1,3 +1,6 @@
+#Brandon Bosso
+#Naomi Plasterer
+
 #creates a singleton class
 #store the rules in a data structure (I used a hash)
 #must be able to add processes to any existing product, not just the last one
@@ -9,23 +12,30 @@
 
 
 require 'singleton'
+require 'product.rb'
 
-class Rules
+class PaymentRules
   include Singleton
-  attr_reader :questions
+  attr_reader :products
 
 
   def initialize
-  puts "init"
-    @questions = []
+    @products = Hash.new
   end
 
-  def add_question(question)
-    @questions << question
+  #Add a product to the products hash
+  def add_product(text)
+    @rules[text] = Product.new(text)
   end
 
-  def last_question
-    @questions.last
+  #Add a rule to the last product read in the businessRules file
+  def add_rule(last_product, text)
+    if @rules.has_key?(last_product)
+      @rules[last_product].addRule(text)
+    else
+      puts "#{last_product} is not a valid product"
+    end
+    
   end
 
 

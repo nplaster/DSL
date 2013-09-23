@@ -1,3 +1,6 @@
+#Brandon Bosso
+#Naomi Plasterer
+
 #contains the "main" method (begin/end) for making payments
 #loads the rules file
 #prompts the users and "processes" payments until the user enters a sentinel value (I used 'quit').

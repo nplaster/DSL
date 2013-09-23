@@ -1,3 +1,6 @@
+#Brandon Bosso
+#Naomi Plasterer
+
 # must store the product name and list of processes (I used an array for this)
 # must be able to add a process, including a process that has a parameter (e.g., pay 'commission' vs. activate)
 # must be able to "process" a payment - by calling all the processes stored for

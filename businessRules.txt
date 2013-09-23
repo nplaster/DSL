@@ -1,7 +1,3 @@
-product 'physical'
-packing_slip 'shipping'
-pay 'commission'
-
 product 'book'
 packing_slip 'shipping'
 packing_slip 'royalty'
