@@ -12,7 +12,7 @@
 
 
 require 'singleton'
-require 'product.rb'
+require_relative 'product.rb'
 
 class PaymentRules
   include Singleton
@@ -40,9 +40,11 @@ class PaymentRules
   #Processes a payment for a given product type
   def processPayment(text)
     if @rules.has_key?(text)
-      @rules[text].handlePayment     
+      @rules[text].handlePayment
+      return true
     else
       puts "Invalid product: #{text}"
+      return false;
     end
   end
 

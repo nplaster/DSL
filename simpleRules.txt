@@ -1,1 +1,8 @@
-just for testing
+product 'book'
+packing_slip 'shipping'
+packing_slip 'royalty'
+pay 'commission'
+
+product 'membership'
+activate
+email 'activation'
