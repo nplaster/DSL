@@ -7,7 +7,6 @@
 #handle undefined product exceptions raised by the PaymentRules class
 
 require_relative 'paymentRules.rb'
-#require_relative 'products.rb'
 
 class PaymentMain
   def run_product
@@ -20,11 +19,10 @@ class PaymentMain
         #check to see if response is legit product type
         if response != 'quit'
           checker = rules.processPayment(response)
-        else
-          abort()
         end
         #if not loop through again
-      end while(response != 'quit' || checker != true)
+      end while(response != 'quit' && checker != true)
+
     end while (response != 'quit')
   end
   
@@ -33,6 +31,8 @@ class PaymentMain
 end
 
 #Main code
-payment = PaymentMain.new
-Products.load_business_rules('businessRules.txt')
-payment.run_product
+if __FILE__ == $0
+  payment = PaymentMain.new
+  Products.load_business_rules('businessRules.txt')
+  payment.run_product
+end
