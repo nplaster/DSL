@@ -11,7 +11,19 @@
 
 class Products
   def self.load_business_rules(filename)
-    load filename
+    validFunctions = ['product', 'packing_slip', 'pay', 'email', 'activate', 'upgrade', 'add_first_aid']
+    File.open(filename).each do |line|
+      if line.to_s.strip.length > 0
+        parts = line.split(' ')
+        if validFunctions.include? parts[0]
+          eval(line)
+        else
+          puts "Invalid method: #{parts[0]}"
+          puts "Aborting..."
+          return
+        end
+      end
+    end
   end
 end
 
