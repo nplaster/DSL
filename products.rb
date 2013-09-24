@@ -5,12 +5,17 @@
 #slip and pay would be required for the file in Figure 1)
 #these methods cause appropriate rules to be stored in PaymentRules
 
-require_relative 'paymentRules.rb'
-require_relative 'paymentMain.rb'
-require_relative 'product.rb'
+#require_relative 'paymentRules.rb'
+#require_relative 'paymentMain.rb'
+#require_relative 'product.rb'
+
+class Products
+  def self.load_business_rules(filename)
+    load filename
+  end
+end
 
 def product(text)
-  puts "Processing payment of type: #{text}"
   PaymentRules.instance.add_product(text)
 end
 
@@ -38,8 +43,3 @@ end
 def add_first_aid()
   PaymentRules.instance.currentProduct.add_rule("add_first_aid", false)
 end
-
-def load_business_rules(filename)
-  load filename
-end
-

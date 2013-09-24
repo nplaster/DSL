@@ -1,8 +1,4 @@
 product 'book'
 packing_slip 'shipping'
-packing_slip 'royalty'
+packing_sli 'royalty'
 pay 'commission'
-
-product 'dog'
-activate
-email 'activation'

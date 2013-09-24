@@ -13,10 +13,11 @@
 
 require 'singleton'
 require_relative 'product.rb'
+require_relative 'products.rb'
 
 class PaymentRules
   include Singleton
-  attr_reader :products :current_product
+  attr_reader :products, :current_product
 
   def initialize
     @products = Hash.new
@@ -25,18 +26,18 @@ class PaymentRules
 
   #Add a product to the products hash
   def add_product(text)
-    if @rules.has_key?(text)
+    if @products.has_key?(text)
       @current_product = text
     else
-      @rules[text] = Product.new(text)
+      @products[text] = Product.new(text)
       @current_product = text
     end
   end
 
   #Add a rule to the last product read in the businessRules file
   def add_rule(last_product, text)
-    if @rules.has_key?(last_product)
-      @rules[last_product].addRule(text)
+    if @products.has_key?(last_product)
+      @products[last_product].addRule(text)
     else
       puts "#{last_product} is not a valid product"
     end
@@ -44,8 +45,8 @@ class PaymentRules
   
   #Processes a payment for a given product type
   def processPayment(text)
-    if @rules.has_key?(text)
-      @rules[text].handlePayment
+    if @products.has_key?(text)
+      @products[text].handlePayment
       return true
     else
       puts "Invalid product: #{text}"
@@ -55,7 +56,7 @@ class PaymentRules
 
   #Returns the current product
   def currentProduct()
-    @rules[@current_product]
+    @products[@current_product]
   end
 
 end

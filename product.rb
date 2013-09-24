@@ -36,7 +36,6 @@ class Product
       #puts rule
       instance_eval(rule)
     end
-    
   end
   
   def packing_slip(text)

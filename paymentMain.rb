@@ -7,18 +7,22 @@
 #handle undefined product exceptions raised by the PaymentRules class
 
 require_relative 'paymentRules.rb'
-require_relative 'products.rb'
+#require_relative 'products.rb'
 
 class PaymentMain
   def run_product
-    rules = PaymentRules.new
+    rules = PaymentRules.instance
     begin
         #check valid product then call product actions
       begin
         puts "Enter product type or 'quit' to end: "
-        response = gets.chomps.downcase
+        response = gets.chomp.downcase
         #check to see if response is legit product type
-        checker = rules.processPayment(response)
+        if response != 'quit'
+          checker = rules.processPayment(response)
+        else
+          abort()
+        end
         #if not loop through again
       end while(response != 'quit' || checker != true)
     end while (response != 'quit')
@@ -30,6 +34,5 @@ end
 
 #Main code
 payment = PaymentMain.new
-product = Products.new
-product.load_business_rules('businessRules.txt')
+Products.load_business_rules('businessRules.txt')
 payment.run_product
