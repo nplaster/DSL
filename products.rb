@@ -9,50 +9,37 @@ require_relative 'paymentRules.rb'
 require_relative 'paymentMain.rb'
 require_relative 'product.rb'
 
-class Products
-  attr_reader :last_product
-  
-  def initialize
-    @last_product
-  end
-
-  def product(text)
-    puts "Processing payment of type: #{text}"
-    @last_product = text
-    #PaymentRules.instance.add_product(text)
-  end
-  
-  def packing_slip(text)
-    puts "----Packing slip for #{text}"
-    #PaymentRules.instance.add_rule(@last_product, "----Packing slip for #{text}")
-  end
-  
-  def pay(text)
-    #PaymentRules.instance.add_rule(@last_product, "----Paying #{text}")
-  end
-  
-  def email(text)
-    puts "----Sending email for #{text}"
-    #PaymentRules.instance.add_rule(@last_product, "----Sending email for #{text}")
-  end
-  
-  def activate()
-    puts "----Activating membership"
-    #PaymentRules.instance.add_rule(@last_product, "----Activating membership")
-  end
-  
-  def upgrade()
-    puts "----Upgrading membership"
-    #PaymentRules.instance.add_rule(@last_product, "----Upgrading membership")
-  end
-  
-  def add_first_aid()
-    puts "----Adding free First Aid video to packing slip"
-    #PaymentRules.instance.add_rule(@last_product, "----Adding free First Aid video to packing slip")
-  end
-  
-  def load_business_rules(filename)
-    load filename
-  end
-  
+def product(text)
+  puts "Processing payment of type: #{text}"
+  PaymentRules.instance.add_product(text)
 end
+
+def packing_slip(text)
+  PaymentRules.instance.currentProduct.add_rule("packing_slip", true, text)
+end
+
+def pay(text)
+  PaymentRules.instance.currentProduct.add_rule("pay", true, text)
+
+end
+
+def email(text)
+  PaymentRules.instance.currentProduct.add_rule("email", true, text)
+end
+
+def activate()
+  PaymentRules.instance.currentProduct.add_rule("activate", false)
+end
+
+def upgrade()
+  PaymentRules.instance.currentProduct.add_rule("upgrade", false)
+end
+
+def add_first_aid()
+  PaymentRules.instance.currentProduct.add_rule("add_first_aid", false)
+end
+
+def load_business_rules(filename)
+  load filename
+end
+

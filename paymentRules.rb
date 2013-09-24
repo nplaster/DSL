@@ -16,16 +16,21 @@ require_relative 'product.rb'
 
 class PaymentRules
   include Singleton
-  attr_reader :products
-
+  attr_reader :products :current_product
 
   def initialize
     @products = Hash.new
+    @current_product
   end
 
   #Add a product to the products hash
   def add_product(text)
-    @rules[text] = Product.new(text)
+    if @rules.has_key?(text)
+      @current_product = text
+    else
+      @rules[text] = Product.new(text)
+      @current_product = text
+    end
   end
 
   #Add a rule to the last product read in the businessRules file
@@ -48,5 +53,9 @@ class PaymentRules
     end
   end
 
+  #Returns the current product
+  def currentProduct()
+    @rules[@current_product]
+  end
 
 end
