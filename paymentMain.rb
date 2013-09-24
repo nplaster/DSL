@@ -24,14 +24,12 @@ class PaymentMain
     end while (response != 'quit')
   end
   
-  def load_business_rules(filename)
-    load filename
-    #products = Product.new
-  end
+
   
 end
 
 #Main code
 payment = PaymentMain.new
-payment.load_business_rules('./businessRules.txt')
+product = Products.new
+product.load_business_rules('businessRules.txt')
 payment.run_product

@@ -51,4 +51,8 @@ class Products
     #PaymentRules.instance.add_rule(@last_product, "----Adding free First Aid video to packing slip")
   end
   
+  def load_business_rules(filename)
+    load filename
+  end
+  
 end
